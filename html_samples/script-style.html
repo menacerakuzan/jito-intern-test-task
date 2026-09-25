@@ -1,0 +1,13 @@
+<div>
+  <script>
+    if (a < b && c > d) {
+      console.log("1 < 2 && 3 > 1");
+    }
+    var s = "</not-a-real-closing-tag>";
+  </script>
+  <style>
+    .a > .b { content: "<div>"; }
+    body::before { content: "1 < 2"; }
+  </style>
+  <p>Regular text after script/style.</p>
+</div>

@@ -1,0 +1,10 @@
+This solution was developed with the help of Claude (Anthropic's Claude Code), not ChatGPT.
+
+Since there is no ChatGPT share link for this session, the full conversation
+(task analysis, research, planning, implementation, and follow-up changes, in
+a single session) has been written out in full at:
+  ai_help/claude_conversation.txt
+
+If a shareable Claude conversation link is available, it can be added here as
+well:
+  TODO (optional): paste the shareable Claude conversation link here.

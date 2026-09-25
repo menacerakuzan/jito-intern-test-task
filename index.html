@@ -1,0 +1,197 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML to JSON</title>
+    <script src="html2json.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        padding: 24px 32px 32px;
+        min-height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #1c2333;
+        background: radial-gradient(1200px 600px at 10% -10%, #dfe9ff 0%, transparent 60%),
+          radial-gradient(1000px 500px at 100% 0%, #ffe6f0 0%, transparent 55%),
+          #f4f6fb;
+      }
+
+      header {
+        text-align: center;
+        max-width: 780px;
+        margin-bottom: 22px;
+      }
+
+      .badge {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #4338ca;
+        background: #eef0ff;
+        border: 1px solid #d6d9ff;
+        padding: 4px 12px;
+        border-radius: 999px;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        font-size: 26px;
+        margin: 0 0 8px;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: #5a6178;
+        font-size: 14.5px;
+        line-height: 1.5;
+      }
+
+      .container {
+        display: flex;
+        width: 100%;
+        max-width: 1300px;
+        gap: 16px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        background: #ffffff;
+        border: 1px solid #e3e6f0;
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 6px 20px rgba(30, 40, 90, 0.06);
+      }
+
+      .field label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #3a4159;
+        margin-bottom: 8px;
+      }
+
+      textarea {
+        width: 100%;
+        height: calc(100vh - 260px);
+        max-width: 100%;
+        white-space: pre;
+        resize: vertical;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 13px;
+        line-height: 1.5;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #dde1ee;
+        background: #fbfcff;
+        color: #1c2333;
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: #7c86f0;
+        box-shadow: 0 0 0 3px rgba(124, 134, 240, 0.15);
+      }
+
+      textarea:disabled {
+        background: #f6f7fb;
+        color: #3a4159;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      button {
+        width: 160px;
+        height: 42px;
+        cursor: pointer;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        font-size: 14px;
+        font-weight: 600;
+        transition: transform 0.08s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      }
+
+      button:active {
+        transform: translateY(1px);
+      }
+
+      button.primary {
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        color: #ffffff;
+        box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+      }
+
+      button.primary:hover {
+        opacity: 0.92;
+      }
+
+      button.secondary {
+        background: #ffffff;
+        color: #3a4159;
+        border-color: #dde1ee;
+      }
+
+      button.secondary:hover {
+        background: #f4f6fb;
+      }
+
+      footer {
+        margin-top: 18px;
+        color: #8890a6;
+        font-size: 12.5px;
+        text-align: center;
+      }
+
+      footer code {
+        background: #eef0ff;
+        color: #4338ca;
+        padding: 1px 6px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="badge">Jito Intern Test Task</span>
+      <h1>HTML &rarr; JSON converter</h1>
+      <p class="subtitle">
+        A hand-written HTML tokenizer and tree builder &mdash; no <code>DOMParser</code>,
+        no <code>innerHTML</code>, no third-party parsing libraries. Paste any HTML on the
+        left (including intentionally broken markup) and convert it to a JSON tree on the right.
+      </p>
+    </header>
+
+    <div class="container">
+      <div class="field">
+        <label for="html">Input for "html2json" conversion:</label>
+        <textarea id="html" placeholder="Enter your HTML"></textarea>
+      </div>
+      <div class="field">
+        <label for="json">Results of "html2json" conversion:</label>
+        <textarea disabled id="json" placeholder="Here will be output from your html2json function"></textarea>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="primary" onclick="convertHtml2JsonAndSet()">Convert to JSON</button>
+      <button class="secondary" onclick="showExample1()">Input Example 1</button>
+      <button class="secondary" onclick="showExample2()">Input Example 2</button>
+    </div>
+    <footer>
+      Solution source: <code>html2json.js</code> &middot; sample fixtures in <code>html_samples/</code> &middot; run <code>node test/run-samples.js</code> for the automated smoke test.
+    </footer>
+  </body>
+</html>
